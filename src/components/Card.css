@@ -1,0 +1,23 @@
+.card{
+    display: grid;
+    place-items: center;
+    width: 100px;
+    height: 100px;
+}
+
+.side{
+    border:2px solid black;
+}
+
+.front{
+
+}
+
+.emojihide{
+    width: 50px;
+    background-color: white;
+}
+
+.back{
+
+}
