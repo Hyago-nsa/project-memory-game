@@ -2,13 +2,11 @@ import React from "react";
 import emojihide from "../assets/interrogation.png";
 import "./Card.css";
 
-const Card = ({ emoji }) => {
-    function handleCardClick(){
-        console.log("clicked")
-    }
+const Card = ({ emoji, id, handleCardClick}) => {
+
 
   return (
-    <button className="card" onClick={handleCardClick}>
+    <button className="card" onClick={handleCardClick} data-id={id}>
       <div className="side front">
         <img className="emojihide" src={emojihide} alt="hidden" />
       </div>

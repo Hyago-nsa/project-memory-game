@@ -5,6 +5,9 @@ import "./App.css";
 
 const App = () => {
   const [cards, setCards] = useState(null);
+  const [disabled, setDisabled] = useState(false);
+  const [firstSelection, setFirstSelection] = useState(null);
+  const [secondSelection, setSecondSelection] = useState(null);
   const items = [
     { symbol: "😍", id: 1 },
     { symbol: "🙌", id: 2 },
@@ -17,9 +20,29 @@ const App = () => {
   ];
 
   function resetCards() {
-    const shuffled = [...items, ...items].sort(() => Math.random() - .5);
+    const shuffled = [...items, ...items]
+      .sort(() => Math.random() - 0.5)
+      .map((idCard) => ({ ...idCard, key: Math.random() }));
     setCards(shuffled);
   }
+
+  function evaluateSelection() {
+    console.log(`First: ${firstSelection}`);
+    console.log(`Second: ${secondSelection}`);
+  }
+
+  function handleCardClick(e) {
+    firstSelection
+      ? setSecondSelection(e.target.dataset.id)
+      : setFirstSelection(e.target.dataset.id);
+  }
+
+  useEffect(() => {
+    if(!secondSelection){return}
+    if(firstSelection === secondSelection){
+      setCards()
+    }
+  }, [firstSelection,secondSelection]);
 
   useEffect(() => {
     resetCards();
@@ -28,9 +51,16 @@ const App = () => {
   return (
     <div className="App">
       <div className="gameboard">
-        {Object.entries(cards).map(({ symbol, id }) => (
-          <Card key={id} emoji={symbol} />
-        ))}
+        {cards &&
+          Object.values(cards).map(({ symbol, key, id }) => (
+            <Card
+              key={key}
+              id={id}
+              emoji={symbol}
+              disabled={disabled}
+              handleCardClick={handleCardClick}
+            />
+          ))}
       </div>
     </div>
   );
