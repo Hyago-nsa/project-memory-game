@@ -1,18 +1,16 @@
 import React from "react";
-import emojihide from "../assets/interrogation.png";
-import "./Card.css";
+import head from "../assets/interrogation.png";
+import "./Card.css"
 
-const Card = ({ emoji, id, handleCardClick}) => {
-
+const Card = ({card, handleCardClick, disabled}) => {
 
   return (
-    <button className="card" onClick={handleCardClick} data-id={id}>
-      <div className="side front">
-        <img className="emojihide" src={emojihide} alt="hidden" />
+    <button className={`card ${card.matchFound ? "matched" : ""}`} disabled={disabled} onClick={handleCardClick} data-id={card.id}>
+      <div className="front side">
+        <img src={head} alt="head" width="60" />
       </div>
-      <div className="side back">{emoji}</div>
+      <div className="side back">{card.emoji}</div>
     </button>
-  );
-};
-
-export default Card;
+  )
+}
+export default Card
