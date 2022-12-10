@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/project-memory-game/static/css/main.0245ff79.css",
+    "main.js": "/project-memory-game/static/js/main.f81f2798.js",
+    "static/media/interrogation.png": "/project-memory-game/static/media/interrogation.2f0b680dc329dcc1efd3.png",
+    "index.html": "/project-memory-game/index.html",
+    "main.0245ff79.css.map": "/project-memory-game/static/css/main.0245ff79.css.map",
+    "main.f81f2798.js.map": "/project-memory-game/static/js/main.f81f2798.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0245ff79.css",
+    "static/js/main.f81f2798.js"
+  ]
+}
